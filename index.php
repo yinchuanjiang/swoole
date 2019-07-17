@@ -3,7 +3,7 @@
 $http = new swoole_http_server('0.0.0.0',8011);
 $http->set([
     'enable_static_handler' => true,
-    'document_root' => '/Users/yinchuanjiang/www/swoole/apidoc',
+    'document_root' => '/www/wwwroot/swoole-time/',
     'worker_num' => 8,    //开启的进程数  cup的核数 1-4倍
     'max_request' => 10000,
 ]);
