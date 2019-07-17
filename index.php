@@ -9,7 +9,7 @@ $http->set([
 ]);
 $http->on('request',function ($request,$response){
     $timer_id = swoole_timer_tick( 1000 , function($timer_id , $params) use ($response) {
-        $response->end(json_encode(date('Y-m-d H:i:s'));
-    } , "Hello" );
+       return $response->end(date('Y-m-d H:i:s'));
+    });
 });
 $http->start();
