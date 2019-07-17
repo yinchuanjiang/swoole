@@ -8,11 +8,8 @@ $http->set([
     'max_request' => 10000,
 ]);
 $http->on('request',function ($request,$response){
-    $str = "Say ";
-    $timer_id = swoole_timer_tick( 1000 , function($timer_id , $params) use ($str) {
-        echo $str . $params;  // 输出“Say Hello”
-
+    $timer_id = swoole_timer_tick( 1000 , function($timer_id , $params) use ($response) {
+        $response->end(json_encode(date('Y-m-d H:i:s'));
     } , "Hello" );
-    $response->end(json_encode($request->get));
 });
 $http->start();
