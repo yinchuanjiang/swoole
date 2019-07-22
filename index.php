@@ -9,7 +9,7 @@ $http->set([
 ]);
 $http->on('request',function ($request,$response){
     $timer_id = swoole_timer_tick( 100 , function($timer_id , $params) use ($response) {
-        echo date('Y-m-d H:i:s').PHP_EOL;
+        echo date('Y-m-d H:i:s').'   '.microtime().PHP_EOL;
     },PHP_EOL);
     return $response->end(json_encode(['status' => 'ok']));
 });
