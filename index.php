@@ -11,6 +11,6 @@ $http->on('request',function ($request,$response){
     $timer_id = swoole_timer_tick( 100 , function($timer_id , $params) use ($response) {
         echo $response->end(date('Y-m-d H:i:s'));
     },PHP_EOL);
-    $response->end(json_encode(['status' => 'ok']));
+    return $response->end(json_encode(['status' => 'ok']));
 });
 $http->start();
